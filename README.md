@@ -1,4 +1,4 @@
-# EXNO-6-DS-DATA VISUALIZATION USING SEABORN LIBRARY
+<img width="827" height="578" alt="499738723-984ab8c4-e949-4963-a368-b40ced1d2cd4" src="https://github.com/user-attachments/assets/341d0d28-f32b-49d1-b901-ef5bf1a5bb39" /># EXNO-6-DS-DATA VISUALIZATION USING SEABORN LIBRARY
 
 # Aim:
   To Perform Data Visualization using seaborn python library for the given datas.
@@ -18,7 +18,283 @@ STEP 4:Apply the various data visualization tools wherever necessary.
 STEP 5:Include Necessary parameters in each functions.
 
 # Coding and Output:
- Include the necessary coding and corresponding screenshots
+ 
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    x = [1, 2, 3, 4, 5]
+    y = [3, 6, 2, 7, 1]
+    sns.lineplot(x=x,y=y)
+
+<img width="827" height="578" alt="499738723-984ab8c4-e949-4963-a368-b40ced1d2cd4" src="https://github.com/user-attachments/assets/28079daa-fb45-4acc-a924-5b53a8a86083" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    df = sns.load_dataset("tips")
+    df
+
+<img width="649" height="457" alt="499739148-f2c29ef0-9c4c-4104-ae8a-0796a3aa1049" src="https://github.com/user-attachments/assets/79b06408-d06d-4475-95e1-4f8cfe61d0c2" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    sns.lineplot(x="total_bill",y="tip", data=df, hue="sex", linestyle='solid', legend="auto")
+
+
+<img width="855" height="589" alt="499739400-440968c4-b615-45bd-94d5-ffbfdc86bcd2" src="https://github.com/user-attachments/assets/6a8a6d87-2798-4f92-8c94-08112b27c813" />
+    
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    x=[1, 2, 3, 4, 5]
+    y1=[3, 5, 2, 6, 1]
+    y2=[1, 6, 4, 3, 8]
+    y3=[5, 2, 7, 1, 4]
+    sns.lineplot(x=x, y=y1)
+    sns.lineplot(x=x, y=y2)
+    sns.lineplot(x=x, y=y3)
+    plt.title("Multi-Line Plot")
+    plt.xlabel('X Label')
+    plt.ylabel("Y Label")
+    
+<img width="894" height="637" alt="499739956-8a4978cc-375a-41b3-a168-9102e7637ff7" src="https://github.com/user-attachments/assets/c837e40a-209d-4f1f-bb32-d3084dde05c8" />
+
+      import seaborn as sns
+      import matplotlib.pyplot as plt
+      import pandas as pd
+      import numpy as np
+      tips=sns.load_dataset('tips')
+      avg_total_bill = tips.groupby('day')['total_bill'].mean()
+      avg_tip = tips.groupby('day')['tip'].mean()
+      plt.figure(figsize=(8, 6))
+      p1 = plt.bar(avg_total_bill.index, avg_total_bill, label='Total Bill')
+      p2 = plt.bar(avg_tip.index, avg_tip, bottom=avg_total_bill, label='Tip')
+      plt.xlabel('Day of the Week')
+      plt.ylabel('Amount')
+      plt.title('Average Total Bill and Tip by Day')
+      plt.legend()
+      
+
+<img width="1045" height="722" alt="499740185-a5f74d7a-af7f-4858-99e4-4ffd391e03c0" src="https://github.com/user-attachments/assets/b4663f64-5ad5-4867-b11c-ce22fa83ec61" />
+
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    avg_total_bill = tips.groupby('time')['total_bill'].mean()
+    avg_tip=tips.groupby('time') ['tip'].mean()
+    p1= plt.bar(avg_total_bill.index, avg_total_bill, label='Total Bill', width=0.4)
+    p2 = plt.bar(avg_tip.index,avg_tip,bottom=avg_total_bill,label='Tip', width=0.4)
+
+
+
+<img width="729" height="552" alt="499740414-841ca658-e44f-4497-ad0c-679550f718a5" src="https://github.com/user-attachments/assets/f6bb932f-4c48-42f9-8c74-f62422c2e722" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    years=range(2000, 2012)
+    apples=[0.895, 0.91, 0.919, 0.926, 0.929, 0.931, 0.934, 0.936, 0.937, 0.9375, 0.9372, 0.939]
+    oranges = [0.962, 0.941, 0.930, 0.923, 0.918, 0.908, 0.907, 0.904, 0.901, 0.898, 0.9, 0.896, ]
+    plt.bar(years, apples)
+    plt.bar(years, oranges, bottom=apples)****
+
+
+<img width="871" height="579" alt="499740710-65a545ad-156a-404f-9cd8-70b60cad096d" src="https://github.com/user-attachments/assets/874e06ec-3a32-4061-9b9c-f72e565fe4d7" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    dt= sns.load_dataset('tips')
+    sns.barplot(x='day', y='total_bill', hue='sex', data=dt, palette='Set1')
+    plt.xlabel('Day of the Week')
+    plt.ylabel("Total Bill")
+    plt.title('Total Bill by Day and Gender')
+
+
+<img width="849" height="610" alt="499741140-a45f19a8-4570-49cf-9180-4869bf4e1f81" src="https://github.com/user-attachments/assets/1a7dcf31-4d4f-4a07-9d09-d597299ba7a6" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    tit=pd.read_csv("titanic_dataset.csv")
+    tit
+
+<img width="1362" height="468" alt="499741535-8afa0a71-6572-41c8-82b4-f01da6d4a5e6" src="https://github.com/user-attachments/assets/f730b7ed-d88c-4801-b330-7b1f582290d6" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    plt.figure(figsize=(8,5))
+    sns.barplot(x='Embarked', y='Fare', data=tit, palette='rainbow')
+    plt.title("Fare of Passenger by Embarked Town")
+
+
+
+<img width="1051" height="650" alt="499741767-b729a38f-9090-4ec6-bb58-aa95a86cd50a" src="https://github.com/user-attachments/assets/5ad0fbd6-85d5-4879-946b-cefe338316c4" />
+
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    plt.figure(figsize=(8,5))
+    sns.barplot(x='Embarked', y='Fare', data=tit, palette='rainbow', hue='Pclass')
+    plt.title("Fare of Passenger by Embarked Town, Divided by Class")
+    
+
+<img width="1065" height="641" alt="499741976-186c225b-ee55-4fdd-a483-435ccc15bd83" src="https://github.com/user-attachments/assets/321cbaad-3409-44c6-b1fa-0a54594e9079" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    tips=sns.load_dataset('tips')
+    sns.scatterplot(x='total_bill', y='tip', hue='sex', data=tips)
+    plt.xlabel('Total Bill')
+    plt.ylabel("Tip Amount")
+    plt.title('Scatter Plot of Total Bill vs. Tip Amount')
+    
+
+<img width="859" height="637" alt="499742238-10edef20-6284-4edd-a5c9-165cf97f8505" src="https://github.com/user-attachments/assets/cd97f892-807d-4aad-8686-3104b5ece9aa" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    num_var = np.random.randn(1000)
+    num_var=pd.Series(num_var, name = "Numerical variable")
+    
+
+<img width="682" height="285" alt="499742559-7e82551f-763f-4941-817b-64c4080b0817" src="https://github.com/user-attachments/assets/57a3e94e-c556-4f15-81ab-573c6346579c" />
+    
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    sns.histplot(data = num_var, kde = True)
+
+
+<img width="881" height="598" alt="499742758-8a91b951-aedc-486c-b41d-271d3aa2ddbc" src="https://github.com/user-attachments/assets/6c965d42-4208-41c7-a5fe-fad8459b4f58" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    df=pd.read_csv("titanic_dataset.csv")
+    sns.histplot(data=df,x="Pclass", hue="Survived", kde=True)
+    
+
+<img width="908" height="588" alt="499743037-e7527e9f-b261-4886-8f47-3c9ee013106d" src="https://github.com/user-attachments/assets/7c99c7f2-6eee-4187-a313-b237d785697d" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    tips=sns.load_dataset('tips')
+    sns.boxplot(x=tips['day'], y=tips ['total_bill'], hue=tips['sex'])
+
+<img width="917" height="585" alt="499743288-07e23616-5523-4acd-a873-5851fe44584e" src="https://github.com/user-attachments/assets/bddbf6d2-4dbd-4ed5-8d54-15acef5b4c6e" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    sns.boxplot(x="day", y="total_bill", hue="smoker", data=tips, linewidth=2, width=0.6, boxprops={"facecolor": "lightblue", "edgecolor": "darkblue"}, whiskerprops={"color": "black", "linestyle": "--", "linewidth": 1.5}, capprops={"color": "black", "linestyle": "--", "linewidth": 1.5})
+
+<img width="883" height="592" alt="499743667-751ea323-7846-4052-add8-f0d53eaf96c2" src="https://github.com/user-attachments/assets/a50e2b40-73a7-449f-89c5-9dc09e4d2afe" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    sns.violinplot(x="day", y="total_bill", hue="smoker", data=tips, linewidth=2, width=0.6, palette="Set3", inner="quartile")
+    plt.xlabel("Day of the Week")
+    plt.ylabel("Total Bill")
+    plt.title("Violin Plot of Total Bill by Day and Smoker Status")
+
+
+<img width="843" height="628" alt="499743955-359e5671-940a-4c64-a068-58aa0ab5ef98" src="https://github.com/user-attachments/assets/f5690538-6a2a-4104-88a0-988fbd2c5b52" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    mart=pd.read_csv("titanic_dataset.csv")
+    mart
+
+
+<img width="1365" height="429" alt="499744238-d0ecf83b-6002-495a-8642-1da90f094cf8" src="https://github.com/user-attachments/assets/e7319961-ec48-45da-b9ac-d593362f557b" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    mart=mart[['PassengerId', 'Survived', 'Age', 'Name', 'Ticket', 'Embarked']]
+    mart.head(10)
+
+<img width="984" height="380" alt="499744522-afcb2a09-8d73-4ceb-8f36-d44312df45fc" src="https://github.com/user-attachments/assets/72a09558-4296-45bb-9188-918a59406b0a" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    sns.kdeplot(data=mart,x='PassengerId')
+
+<img width="952" height="588" alt="499744738-b8eb763f-c911-4348-af3c-2f07a9f2f36d" src="https://github.com/user-attachments/assets/a9e71fd1-9eb9-406b-b161-8a9d01e17b9f" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    sns.kdeplot(data=mart,x='Age')
+
+
+<img width="915" height="608" alt="499745037-c74dcb40-2992-4da3-9114-9a84df2680da" src="https://github.com/user-attachments/assets/cc5d344c-3237-4134-874f-dc4b09370d9d" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    sns.kdeplot(data=mart)
+
+<img width="921" height="600" alt="499745255-48eb3736-75f3-4eb3-a16f-100942c0e9ec" src="https://github.com/user-attachments/assets/dec6be13-b0e4-4a80-924b-bd090974e8df" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    sns.kdeplot(data=mart,x='PassengerId',hue='Survived',multiple='stack')
+
+<img width="910" height="600" alt="499745488-c57c54e4-0519-4775-8c75-36a22ad80b4e" src="https://github.com/user-attachments/assets/d4f6083c-1129-4d52-8608-520cd500f389" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    sns.kdeplot(data=mart,x='PassengerId',y='Survived')
+
+<img width="976" height="579" alt="499745760-67dd21e2-d610-4c0a-87da-c3566301109a" src="https://github.com/user-attachments/assets/b90416a1-b640-45e9-8bbd-cb3dd1b7e1e5" />
+
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import numpy as np
+    data = np.random.randint(low = 1, high = 100, size = (10,10))
+    hm=sns.heatmap(data=data,annot=True)
+
+<img width="692" height="555" alt="499746001-632ddbde-453b-4c72-8d66-45366d1117b5" src="https://github.com/user-attachments/assets/a6d1ff9d-c96c-41b5-a16a-e0b2ec88ee0e" />
+
 
 # Result:
- Include your result here
+ Thus data visualisation using seaborn python library is performed.
